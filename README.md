@@ -13,6 +13,12 @@ Double-click `start-board.cmd`. It starts a tiny local server (`serve.ps1`, Powe
 - **Refresh:** the board rebuilds on every load. **Injury statuses and weather forecasts re-pull every 30 minutes** while the tab is open, and the Refresh button re-pulls on demand.
 - The first load downloads every completed box score of the season, plus prior-season game logs for this week's key players (for the vs-team line). These are cached in the browser (IndexedDB), so later loads take seconds.
 
+## On your phone
+
+The board is a static page, so GitHub Pages hosts it the same way as the NBA board: https://scottiemt-droid.github.io/NFL-Dashboard/ (once Pages is on: repo **Settings → Pages → Deploy from a branch → `main` / root → Save**). The weekly scheme workflow commits to `main`, so the phone copy picks up each new scheme file automatically.
+
+To get an app icon: open that link in **Safari (iPhone) → Share → Add to Home Screen**, or **Chrome (Android) → ⋮ → Add to Home screen / Install app**. It opens full-screen with its own icon (`manifest.webmanifest`, `icons/`; redraw the icons with `node tools/make-icons.js`). Data still loads live on every open.
+
 ## Scheme file (weekly, Wednesday)
 
 `data/schemes.json` holds each team's offensive and defensive tendencies. It's built from nflverse play-by-play, FTN charting and nflverse participation data by `tools/build-schemes.js` (Node 18+, no installs):

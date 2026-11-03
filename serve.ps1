@@ -2,7 +2,7 @@
 # Usage: powershell -ExecutionPolicy Bypass -File serve.ps1   then open http://localhost:8078/
 param([int]$Port = 8078)
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$types = @{ '.html' = 'text/html; charset=utf-8'; '.js' = 'text/javascript; charset=utf-8'; '.css' = 'text/css; charset=utf-8'; '.json' = 'application/json'; '.md' = 'text/plain; charset=utf-8'; '.ico' = 'image/x-icon' }
+$types = @{ '.html' = 'text/html; charset=utf-8'; '.js' = 'text/javascript; charset=utf-8'; '.css' = 'text/css; charset=utf-8'; '.json' = 'application/json'; '.md' = 'text/plain; charset=utf-8'; '.ico' = 'image/x-icon'; '.png' = 'image/png'; '.webmanifest' = 'application/manifest+json' }
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$Port/")
 $listener.Start()
