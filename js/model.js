@@ -55,11 +55,12 @@ function prepareLeague(raw) {
     const byTeam = {};
     for (const tid of tids) byTeam[tid] = { pos: { QB: zero(), RB: zero(), WR: zero(), TE: zero() }, unknown: zero(), unknownN: 0, rows: [] };
     for (const p of b.players) {
-      const P = posGroup(posOf(p.id, p.p));
+      const pos = posOf(p.id, p.p), P = posGroup(pos);
       const side = byTeam[p.t];
       if (!side) continue;
       side.rows.push(p);
-      if (P) add(side.pos[P], p); else if (SUM_KEYS.some(k => p[k])) { add(side.unknown, p); side.unknownN++; }
+      // a known non-skill position (punter on a fake, lineman on a trick play) is not a QB/RB/WR/TE and not "unplaced"
+      if (P) add(side.pos[P], p); else if (!pos && SUM_KEYS.some(k => p[k])) { add(side.unknown, p); side.unknownN++; }
       names[p.id] = p.n;
     }
     for (const tid of tids) {
@@ -354,6 +355,7 @@ function defenseRead(c, L, schemes, teams) {
   } else {
     if (D && D.man != null) bits.push(D.man >= 0.4 ? `man-heavy (${pct(D.man)}) — ${c.P === 'WR' ? 'outside WRs face isolation on their corner' : 'TE likely matched by a LB/S'}` : D.man <= 0.25 ? `zone-heavy (${pct(1 - D.man)} zone) — volume flows to the soft spots underneath and the slot` : `mixed man/zone (${pct(D.man)} man)`);
     if (D && D.blitz != null && D.blitzRank <= 8) bits.push(`blitzes ${pct(D.blitz)} (#${D.blitzRank}) — hot/quick routes come open, ${c.P === 'TE' ? 'TE may be kept in to block' : 'fewer deep shots'}`);
+    else if (D && D.blitz != null && D.man == null) bits.push(`blitzes ${pct(D.blitz)} (#${D.blitzRank}) — no coverage tendency stands out; man/zone not in source`);
   }
   if (!D) bits.push('scheme file not loaded — tendencies not shown');
   return { paTxt, line: bits.join('; ') };

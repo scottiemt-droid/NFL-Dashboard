@@ -184,7 +184,7 @@ const COV = { COVER_0: 'Cover 0', COVER_1: 'Cover 1', COVER_2: 'Cover 2', '2_MAN
       d.front = `${three >= four ? '3-down front (3-4 family)' : '4-down front (4-3 family)'} — 4 DL on ${pc(four)} of snaps, 3 DL on ${pc(three)}`;
       db.push(three >= four ? '3-down front' : '4-down front');
     } else d.front = null;
-    if (top(d.blitzRank)) db.push('blitz-heavy'); else if (bot(d.blitzRank)) db.push('four-man rush');
+    if (top(d.blitzRank)) db.push('blitz-heavy'); else if (bot(d.blitzRank)) db.push('four-man rush'); else if (d.blitz != null) db.push('mid-pack blitz rate');
     if (d.man != null) db.push(d.man >= 0.4 ? 'man-heavy' : d.man <= 0.25 ? 'zone-heavy' : 'mixed man/zone');
     if (d.coverage && d.coverage[0] && d.coverage[0].pct >= 0.3) db.push(`${d.coverage[0].c} base`);
     if (top(d.boxRank)) db.push('loaded box');

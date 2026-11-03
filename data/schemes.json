@@ -1,0 +1,1014 @@
+{
+ "season": 2026,
+ "builtAt": "2026-11-03T20:12:03.965Z",
+ "throughWeek": 8,
+ "teamCount": 32,
+ "sourceNote": "nflverse play-by-play + FTN charting",
+ "sources": {
+  "pbp": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
+   "plays": 14851
+  },
+  "ftn": {
+   "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.csv",
+   "matchedPlays": 14726
+  },
+  "participation": {
+   "missing": true
+  }
+ },
+ "teams": {
+  "ARI": {
+   "n": 549,
+   "off": {
+    "passRate": 0.6429872495446266,
+    "proe": -0.012369974117678581,
+    "shotgun": 0.5865209471766849,
+    "noHuddle": 0.10382513661202186,
+    "pa": 0.1643059490084986,
+    "motion": 0.604735883424408,
+    "screen": 0.059490084985835696,
+    "personnel": null,
+    "proeRank": 12,
+    "paRank": 30,
+    "motionRank": 14,
+    "screenRank": 28,
+    "shotgunRank": 20,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3218390804597701,
+    "rushers": 4.367816091954023,
+    "box": 6.4451476793248945,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 14,
+    "boxRank": 14,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "LAC": {
+   "n": 428,
+   "off": {
+    "passRate": 0.5981308411214953,
+    "proe": -0.09689614465721301,
+    "shotgun": 0.6728971962616822,
+    "noHuddle": 0.0514018691588785,
+    "pa": 0.25390625,
+    "motion": 0.7383177570093458,
+    "screen": 0.10546875,
+    "personnel": null,
+    "proeRank": 30,
+    "paRank": 11,
+    "motionRank": 3,
+    "screenRank": 8,
+    "shotgunRank": 8,
+    "identity": "run-first, mixed gun/under-center, motion-heavy, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.2651162790697674,
+    "rushers": 4.330232558139535,
+    "box": 6.352078239608802,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 21,
+    "boxRank": 22,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "PIT": {
+   "n": 492,
+   "off": {
+    "passRate": 0.6382113821138211,
+    "proe": 0.013055259467867321,
+    "shotgun": 0.6646341463414634,
+    "noHuddle": 0.07113821138211382,
+    "pa": 0.16560509554140126,
+    "motion": 0.46747967479674796,
+    "screen": 0.1337579617834395,
+    "personnel": null,
+    "proeRank": 6,
+    "paRank": 29,
+    "motionRank": 30,
+    "screenRank": 2,
+    "shotgunRank": 9,
+    "identity": "balanced, mixed gun/under-center, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.27044025157232704,
+    "rushers": 4.333333333333333,
+    "box": 6.448559670781893,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 20,
+    "boxRank": 12,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "ATL": {
+   "n": 467,
+   "off": {
+    "passRate": 0.5331905781584583,
+    "proe": -0.08162585625173704,
+    "shotgun": 0.5224839400428265,
+    "noHuddle": 0.047109207708779445,
+    "pa": 0.21686746987951808,
+    "motion": 0.588865096359743,
+    "screen": 0.12449799196787148,
+    "personnel": null,
+    "proeRank": 29,
+    "paRank": 19,
+    "motionRank": 15,
+    "screenRank": 3,
+    "shotgunRank": 27,
+    "identity": "run-first, under-center, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.25,
+    "rushers": 4.262820512820513,
+    "box": 6.390715667311412,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 26,
+    "boxRank": 18,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "IND": {
+   "n": 514,
+   "off": {
+    "passRate": 0.5894941634241245,
+    "proe": -0.046069019992295866,
+    "shotgun": 0.6381322957198443,
+    "noHuddle": 0.038910505836575876,
+    "pa": 0.27722772277227725,
+    "motion": 0.6206225680933852,
+    "screen": 0.07260726072607261,
+    "personnel": null,
+    "proeRank": 25,
+    "paRank": 5,
+    "motionRank": 12,
+    "screenRank": 22,
+    "shotgunRank": 14,
+    "identity": "run-first, mixed gun/under-center, play-action heavy"
+   },
+   "def": {
+    "blitz": 0.2084942084942085,
+    "rushers": 4.235521235521236,
+    "box": 6.470198675496689,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 31,
+    "boxRank": 9,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "BAL": {
+   "n": 472,
+   "off": {
+    "passRate": 0.5677966101694916,
+    "proe": -0.04162050347175387,
+    "shotgun": 0.5699152542372882,
+    "noHuddle": 0.036016949152542374,
+    "pa": 0.2574626865671642,
+    "motion": 0.6546610169491526,
+    "screen": 0.06716417910447761,
+    "personnel": null,
+    "proeRank": 23,
+    "paRank": 9,
+    "motionRank": 6,
+    "screenRank": 23,
+    "shotgunRank": 23,
+    "identity": "run-first, mixed gun/under-center, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.33,
+    "rushers": 4.446666666666666,
+    "box": 6.2631578947368425,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 13,
+    "boxRank": 29,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "BUF": {
+   "n": 425,
+   "off": {
+    "passRate": 0.5576470588235294,
+    "proe": -0.02112155062310837,
+    "shotgun": 0.44941176470588234,
+    "noHuddle": 0.03764705882352941,
+    "pa": 0.26582278481012656,
+    "motion": 0.6447058823529411,
+    "screen": 0.09282700421940929,
+    "personnel": null,
+    "proeRank": 17,
+    "paRank": 6,
+    "motionRank": 7,
+    "screenRank": 11,
+    "shotgunRank": 32,
+    "identity": "balanced, under-center, play-action heavy, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.3856655290102389,
+    "rushers": 4.433447098976109,
+    "box": 6.477024070021882,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 7,
+    "boxRank": 7,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "HOU": {
+   "n": 424,
+   "off": {
+    "passRate": 0.6320754716981132,
+    "proe": -0.020573184843052116,
+    "shotgun": 0.660377358490566,
+    "noHuddle": 0.049528301886792456,
+    "pa": 0.2126865671641791,
+    "motion": 0.5566037735849056,
+    "screen": 0.05970149253731343,
+    "personnel": null,
+    "proeRank": 16,
+    "paRank": 21,
+    "motionRank": 21,
+    "screenRank": 27,
+    "shotgunRank": 10,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.2564102564102564,
+    "rushers": 4.344322344322344,
+    "box": 6.452488687782806,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 24,
+    "boxRank": 11,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "CHI": {
+   "n": 566,
+   "off": {
+    "passRate": 0.5530035335689046,
+    "proe": -0.004450052094649083,
+    "shotgun": 0.5353356890459364,
+    "noHuddle": 0.05123674911660778,
+    "pa": 0.33212996389891697,
+    "motion": 0.5392354124748491,
+    "screen": 0.09747292418772563,
+    "personnel": null,
+    "proeRank": 11,
+    "paRank": 2,
+    "motionRank": 23,
+    "screenRank": 9,
+    "shotgunRank": 26,
+    "identity": "balanced, under-center, play-action heavy"
+   },
+   "def": {
+    "blitz": 0.40625,
+    "rushers": 4.611607142857143,
+    "box": 6.540229885057471,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 4,
+    "boxRank": 4,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "CAR": {
+   "n": 459,
+   "off": {
+    "passRate": 0.6601307189542484,
+    "proe": 0.0329463349367149,
+    "shotgun": 0.6601307189542484,
+    "noHuddle": 0.06100217864923747,
+    "pa": 0.25412541254125415,
+    "motion": 0.5664488017429193,
+    "screen": 0.0462046204620462,
+    "personnel": null,
+    "proeRank": 4,
+    "paRank": 10,
+    "motionRank": 18,
+    "screenRank": 30,
+    "shotgunRank": 11,
+    "identity": "pass-first, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3843283582089552,
+    "rushers": 4.414179104477612,
+    "box": 6.263274336283186,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 8,
+    "boxRank": 28,
+    "front": null,
+    "identity": "blitz-heavy"
+   }
+  },
+  "CLE": {
+   "n": 477,
+   "off": {
+    "passRate": 0.6477987421383647,
+    "proe": -0.003182071075624387,
+    "shotgun": 0.779874213836478,
+    "noHuddle": 0.0440251572327044,
+    "pa": 0.1779935275080906,
+    "motion": 0.5618448637316562,
+    "screen": 0.10679611650485436,
+    "personnel": null,
+    "proeRank": 9,
+    "paRank": 27,
+    "motionRank": 20,
+    "screenRank": 7,
+    "shotgunRank": 1,
+    "identity": "balanced, shotgun spread, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.2508591065292096,
+    "rushers": 4.278350515463917,
+    "box": 6.292089249492901,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 25,
+    "boxRank": 27,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "JAX": {
+   "n": 407,
+   "off": {
+    "passRate": 0.547911547911548,
+    "proe": -0.04784968054192072,
+    "shotgun": 0.5454545454545454,
+    "noHuddle": 0.03194103194103194,
+    "pa": 0.24663677130044842,
+    "motion": 0.6412776412776413,
+    "screen": 0.08968609865470852,
+    "personnel": null,
+    "proeRank": 26,
+    "paRank": 13,
+    "motionRank": 8,
+    "screenRank": 14,
+    "shotgunRank": 25,
+    "identity": "run-first, under-center, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.3037037037037037,
+    "rushers": 4.359259259259259,
+    "box": 6.364077669902913,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 16,
+    "boxRank": 20,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "DAL": {
+   "n": 511,
+   "off": {
+    "passRate": 0.6457925636007827,
+    "proe": 0.008579184820624012,
+    "shotgun": 0.639921722113503,
+    "noHuddle": 0.08610567514677103,
+    "pa": 0.22121212121212122,
+    "motion": 0.4657534246575342,
+    "screen": 0.06363636363636363,
+    "personnel": null,
+    "proeRank": 7,
+    "paRank": 17,
+    "motionRank": 31,
+    "screenRank": 26,
+    "shotgunRank": 13,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.24573378839590443,
+    "rushers": 4.2593856655290105,
+    "box": 6.326771653543307,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 27,
+    "boxRank": 26,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "NYG": {
+   "n": 452,
+   "off": {
+    "passRate": 0.5862831858407079,
+    "proe": -0.0545371871903143,
+    "shotgun": 0.6283185840707964,
+    "noHuddle": 0.07743362831858407,
+    "pa": 0.2,
+    "motion": 0.4579646017699115,
+    "screen": 0.06415094339622641,
+    "personnel": null,
+    "proeRank": 27,
+    "paRank": 25,
+    "motionRank": 32,
+    "screenRank": 25,
+    "shotgunRank": 16,
+    "identity": "run-first, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.41735537190082644,
+    "rushers": 4.541322314049586,
+    "box": 6.607843137254902,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 3,
+    "boxRank": 2,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "DEN": {
+   "n": 448,
+   "off": {
+    "passRate": 0.5982142857142857,
+    "proe": -0.0179950607707724,
+    "shotgun": 0.6540178571428571,
+    "noHuddle": 0.05803571428571429,
+    "pa": 0.22388059701492538,
+    "motion": 0.625,
+    "screen": 0.11194029850746269,
+    "personnel": null,
+    "proeRank": 15,
+    "paRank": 15,
+    "motionRank": 9,
+    "screenRank": 6,
+    "shotgunRank": 12,
+    "identity": "balanced, mixed gun/under-center, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.35398230088495575,
+    "rushers": 4.392330383480826,
+    "box": 6.398165137614679,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 10,
+    "boxRank": 17,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "KC": {
+   "n": 420,
+   "off": {
+    "passRate": 0.6047619047619047,
+    "proe": 0.03526861547004609,
+    "shotgun": 0.6142857142857143,
+    "noHuddle": 0.007142857142857143,
+    "pa": 0.30708661417322836,
+    "motion": 0.5785714285714286,
+    "screen": 0.16141732283464566,
+    "personnel": null,
+    "proeRank": 3,
+    "paRank": 4,
+    "motionRank": 16,
+    "screenRank": 1,
+    "shotgunRank": 17,
+    "identity": "pass-first, mixed gun/under-center, play-action heavy, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.26037735849056604,
+    "rushers": 4.324528301886793,
+    "box": 6.372146118721461,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 23,
+    "boxRank": 19,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "MIN": {
+   "n": 400,
+   "off": {
+    "passRate": 0.5775,
+    "proe": -0.030078130685724323,
+    "shotgun": 0.605,
+    "noHuddle": 0.0525,
+    "pa": 0.341991341991342,
+    "motion": 0.515,
+    "screen": 0.11255411255411256,
+    "personnel": null,
+    "proeRank": 22,
+    "paRank": 1,
+    "motionRank": 26,
+    "screenRank": 5,
+    "shotgunRank": 18,
+    "identity": "run-first, mixed gun/under-center, play-action heavy, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.7276595744680852,
+    "rushers": 4.94468085106383,
+    "box": 6.575308641975309,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 1,
+    "boxRank": 3,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "GB": {
+   "n": 489,
+   "off": {
+    "passRate": 0.6687116564417178,
+    "proe": 0.03845969115237275,
+    "shotgun": 0.7034764826175869,
+    "noHuddle": 0.081799591002045,
+    "pa": 0.1712538226299694,
+    "motion": 0.621676891615542,
+    "screen": 0.09174311926605505,
+    "personnel": null,
+    "proeRank": 2,
+    "paRank": 28,
+    "motionRank": 11,
+    "screenRank": 12,
+    "shotgunRank": 6,
+    "identity": "pass-first, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3426791277258567,
+    "rushers": 4.426791277258567,
+    "box": 6.475285171102661,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 12,
+    "boxRank": 8,
+    "front": null,
+    "identity": "mid-pack blitz rate, loaded box"
+   }
+  },
+  "MIA": {
+   "n": 395,
+   "off": {
+    "passRate": 0.569620253164557,
+    "proe": -0.10943129198460638,
+    "shotgun": 0.5772151898734177,
+    "noHuddle": 0.03291139240506329,
+    "pa": 0.23555555555555555,
+    "motion": 0.7569620253164557,
+    "screen": 0.09333333333333334,
+    "personnel": null,
+    "proeRank": 32,
+    "paRank": 14,
+    "motionRank": 2,
+    "screenRank": 10,
+    "shotgunRank": 21,
+    "identity": "run-first, mixed gun/under-center, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.2361111111111111,
+    "rushers": 4.24537037037037,
+    "box": 6.515075376884422,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 29,
+    "boxRank": 5,
+    "front": null,
+    "identity": "four-man rush, loaded box"
+   }
+  },
+  "LV": {
+   "n": 497,
+   "off": {
+    "passRate": 0.6156941649899397,
+    "proe": -0.02440418161346877,
+    "shotgun": 0.5573440643863179,
+    "noHuddle": 0.08048289738430583,
+    "pa": 0.25163398692810457,
+    "motion": 0.6237424547283702,
+    "screen": 0.08823529411764706,
+    "personnel": null,
+    "proeRank": 18,
+    "paRank": 12,
+    "motionRank": 10,
+    "screenRank": 16,
+    "shotgunRank": 24,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.2736842105263158,
+    "rushers": 4.3052631578947365,
+    "box": 6.3319755600814664,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 19,
+    "boxRank": 25,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "SEA": {
+   "n": 499,
+   "off": {
+    "passRate": 0.5751503006012024,
+    "proe": -0.05529556301737835,
+    "shotgun": 0.5190380761523046,
+    "noHuddle": 0.03406813627254509,
+    "pa": 0.2620967741935484,
+    "motion": 0.5304740406320542,
+    "screen": 0.11693548387096774,
+    "personnel": null,
+    "proeRank": 28,
+    "paRank": 7,
+    "motionRank": 25,
+    "screenRank": 4,
+    "shotgunRank": 28,
+    "identity": "run-first, under-center, play-action heavy, screen-heavy"
+   },
+   "def": {
+    "blitz": 0.22088353413654618,
+    "rushers": 4.265060240963855,
+    "box": 6.345679012345679,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 30,
+    "boxRank": 24,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "NE": {
+   "n": 484,
+   "off": {
+    "passRate": 0.5826446280991735,
+    "proe": -0.013206259397528161,
+    "shotgun": 0.5888429752066116,
+    "noHuddle": 0.004132231404958678,
+    "pa": 0.20921985815602837,
+    "motion": 0.5764462809917356,
+    "screen": 0.07801418439716312,
+    "personnel": null,
+    "proeRank": 13,
+    "paRank": 23,
+    "motionRank": 17,
+    "screenRank": 21,
+    "shotgunRank": 19,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3715277777777778,
+    "rushers": 4.534722222222222,
+    "box": 6.467948717948718,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 9,
+    "boxRank": 10,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "DET": {
+   "n": 461,
+   "off": {
+    "passRate": 0.5835140997830802,
+    "proe": -0.027806543605705145,
+    "shotgun": 0.47071583514099785,
+    "noHuddle": 0.05639913232104121,
+    "pa": 0.3159851301115242,
+    "motion": 0.5336225596529284,
+    "screen": 0.08178438661710037,
+    "personnel": null,
+    "proeRank": 21,
+    "paRank": 3,
+    "motionRank": 24,
+    "screenRank": 18,
+    "shotgunRank": 31,
+    "identity": "balanced, under-center, play-action heavy"
+   },
+   "def": {
+    "blitz": 0.26479750778816197,
+    "rushers": 4.339563862928349,
+    "box": 6.446351931330472,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 22,
+    "boxRank": 13,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "NO": {
+   "n": 456,
+   "off": {
+    "passRate": 0.6491228070175439,
+    "proe": -0.0043248426365225055,
+    "shotgun": 0.6907894736842105,
+    "noHuddle": 0.14473684210526316,
+    "pa": 0.14864864864864866,
+    "motion": 0.618421052631579,
+    "screen": 0.037162162162162164,
+    "personnel": null,
+    "proeRank": 10,
+    "paRank": 32,
+    "motionRank": 13,
+    "screenRank": 32,
+    "shotgunRank": 7,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3463035019455253,
+    "rushers": 4.42023346303502,
+    "box": 6.354022988505747,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 11,
+    "boxRank": 21,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "NYJ": {
+   "n": 460,
+   "off": {
+    "passRate": 0.591304347826087,
+    "proe": -0.027596626349765327,
+    "shotgun": 0.5739130434782609,
+    "noHuddle": 0.034782608695652174,
+    "pa": 0.20588235294117646,
+    "motion": 0.49782608695652175,
+    "screen": 0.08455882352941177,
+    "personnel": null,
+    "proeRank": 20,
+    "paRank": 24,
+    "motionRank": 29,
+    "screenRank": 17,
+    "shotgunRank": 22,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.3935018050541516,
+    "rushers": 4.490974729241877,
+    "box": 6.5030060120240485,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 6,
+    "boxRank": 6,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "TEN": {
+   "n": 449,
+   "off": {
+    "passRate": 0.6191536748329621,
+    "proe": -0.043699220353882656,
+    "shotgun": 0.7193763919821826,
+    "noHuddle": 0.20044543429844097,
+    "pa": 0.21942446043165467,
+    "motion": 0.5055679287305123,
+    "screen": 0.07913669064748201,
+    "personnel": null,
+    "proeRank": 24,
+    "paRank": 18,
+    "motionRank": 27,
+    "screenRank": 20,
+    "shotgunRank": 5,
+    "identity": "run-first, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.24342105263157895,
+    "rushers": 4.266447368421052,
+    "box": 6.25095785440613,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 28,
+    "boxRank": 31,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "LAR": {
+   "n": 520,
+   "off": {
+    "passRate": 0.6153846153846154,
+    "proe": 0.001077535920418222,
+    "shotgun": 0.5038461538461538,
+    "noHuddle": 0.09423076923076923,
+    "pa": 0.259375,
+    "motion": 0.698076923076923,
+    "screen": 0.08125,
+    "personnel": null,
+    "proeRank": 8,
+    "paRank": 8,
+    "motionRank": 4,
+    "screenRank": 19,
+    "shotgunRank": 29,
+    "identity": "balanced, under-center, play-action heavy, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.2912280701754386,
+    "rushers": 4.368421052631579,
+    "box": 6.401234567901234,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 17,
+    "boxRank": 16,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "SF": {
+   "n": 400,
+   "off": {
+    "passRate": 0.5775,
+    "proe": 0.017234125356189914,
+    "shotgun": 0.49,
+    "noHuddle": 0.02,
+    "pa": 0.21645021645021645,
+    "motion": 0.76,
+    "screen": 0.09090909090909091,
+    "personnel": null,
+    "proeRank": 5,
+    "paRank": 20,
+    "motionRank": 1,
+    "screenRank": 13,
+    "shotgunRank": 30,
+    "identity": "balanced, under-center, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.31716417910447764,
+    "rushers": 4.33955223880597,
+    "box": 6.348729792147806,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 15,
+    "boxRank": 23,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  },
+  "TB": {
+   "n": 491,
+   "off": {
+    "passRate": 0.5234215885947047,
+    "proe": -0.09985967938714259,
+    "shotgun": 0.6374745417515275,
+    "noHuddle": 0.07128309572301425,
+    "pa": 0.21011673151750973,
+    "motion": 0.6822810590631364,
+    "screen": 0.08949416342412451,
+    "personnel": null,
+    "proeRank": 31,
+    "paRank": 22,
+    "motionRank": 5,
+    "screenRank": 15,
+    "shotgunRank": 15,
+    "identity": "run-first, mixed gun/under-center, motion-heavy"
+   },
+   "def": {
+    "blitz": 0.4061433447098976,
+    "rushers": 4.761092150170649,
+    "box": 6.6644736842105265,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 5,
+    "boxRank": 1,
+    "front": null,
+    "identity": "blitz-heavy, loaded box"
+   }
+  },
+  "CIN": {
+   "n": 429,
+   "off": {
+    "passRate": 0.6736596736596736,
+    "proe": 0.07649750648053377,
+    "shotgun": 0.7645687645687645,
+    "noHuddle": 0.04895104895104895,
+    "pa": 0.1522491349480969,
+    "motion": 0.5034965034965035,
+    "screen": 0.0657439446366782,
+    "personnel": null,
+    "proeRank": 1,
+    "paRank": 31,
+    "motionRank": 28,
+    "screenRank": 24,
+    "shotgunRank": 2,
+    "identity": "pass-first, shotgun spread"
+   },
+   "def": {
+    "blitz": 0.1827956989247312,
+    "rushers": 4.14336917562724,
+    "box": 6.25635103926097,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 32,
+    "boxRank": 30,
+    "front": null,
+    "identity": "four-man rush"
+   }
+  },
+  "WSH": {
+   "n": 432,
+   "off": {
+    "passRate": 0.6273148148148148,
+    "proe": -0.016777240033089,
+    "shotgun": 0.7268518518518519,
+    "noHuddle": 0.0787037037037037,
+    "pa": 0.22140221402214022,
+    "motion": 0.5393518518518519,
+    "screen": 0.04059040590405904,
+    "personnel": null,
+    "proeRank": 14,
+    "paRank": 16,
+    "motionRank": 22,
+    "screenRank": 31,
+    "shotgunRank": 3,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.4359861591695502,
+    "rushers": 4.577854671280277,
+    "box": 6.4324324324324325,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 2,
+    "boxRank": 15,
+    "front": null,
+    "identity": "blitz-heavy"
+   }
+  },
+  "PHI": {
+   "n": 478,
+   "off": {
+    "passRate": 0.6464435146443515,
+    "proe": -0.02519634472026985,
+    "shotgun": 0.7217573221757322,
+    "noHuddle": 0.16108786610878661,
+    "pa": 0.18122977346278318,
+    "motion": 0.5627615062761506,
+    "screen": 0.05177993527508091,
+    "personnel": null,
+    "proeRank": 19,
+    "paRank": 26,
+    "motionRank": 19,
+    "screenRank": 29,
+    "shotgunRank": 4,
+    "identity": "balanced, mixed gun/under-center"
+   },
+   "def": {
+    "blitz": 0.2751677852348993,
+    "rushers": 4.278523489932886,
+    "box": 6.147227533460803,
+    "man": null,
+    "coverage": null,
+    "dl": null,
+    "blitzRank": 18,
+    "boxRank": 32,
+    "front": null,
+    "identity": "mid-pack blitz rate"
+   }
+  }
+ }
+}
