@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NFL Matchup Board</title>
+<style>
+:root {
+  --bg: #f4f3ef; --panel: #ffffff; --panel2: #f8f7f4; --ink: #1b1d22; --ink2: #555a64; --ink3: #8a8f99; --line: #e1dfd8;
+  --accent: #2d5bd7; --up: #1d7a46; --up-bg: #e3f3e8; --down: #b4372f; --down-bg: #fbe7e4; --warn: #9a6200; --warn-bg: #fdf1d8;
+  --tag-p: #7b3fb8; --tag-p-bg: #f0e7fa; --tag-i: #b4372f; --tag-i-bg: #fbe7e4; --mod: #6b5d00; --mod-bg: #f6f0c9;
+  --proj: #13306e; --proj-bg: #eaf0fd;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121418; --panel: #1b1e24; --panel2: #20242b; --ink: #e8e9ec; --ink2: #a9aeb8; --ink3: #737985; --line: #2e333c;
+    --accent: #7ea2ff; --up: #5fd08f; --up-bg: #183526; --down: #ff8a80; --down-bg: #3b1d1b; --warn: #f2c26b; --warn-bg: #3a2e14;
+    --tag-p: #c9a2f5; --tag-p-bg: #2f2340; --tag-i: #ff8a80; --tag-i-bg: #3b1d1b; --mod: #e8d97a; --mod-bg: #36321a;
+    --proj: #cddcff; --proj-bg: #1d2a48;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121418; --panel: #1b1e24; --panel2: #20242b; --ink: #e8e9ec; --ink2: #a9aeb8; --ink3: #737985; --line: #2e333c;
+  --accent: #7ea2ff; --up: #5fd08f; --up-bg: #183526; --down: #ff8a80; --down-bg: #3b1d1b; --warn: #f2c26b; --warn-bg: #3a2e14;
+  --tag-p: #c9a2f5; --tag-p-bg: #2f2340; --tag-i: #ff8a80; --tag-i-bg: #3b1d1b; --mod: #e8d97a; --mod-bg: #36321a;
+  --proj: #cddcff; --proj-bg: #1d2a48;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body { font: 13px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.num, td, th { font-variant-numeric: tabular-nums; }
+a { color: var(--accent); }
+button, input, select { font: inherit; color: inherit; }
+
+/* top bar */
+.top { position: sticky; top: 0; z-index: 20; background: var(--panel); border-bottom: 1px solid var(--line); }
+.top-in { max-width: 1680px; margin: 0 auto; padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; }
+.brand { font-weight: 700; font-size: 15px; letter-spacing: .2px; }
+.datectl { display: flex; gap: 4px; align-items: center; }
+.btn { border: 1px solid var(--line); background: var(--panel2); border-radius: 6px; padding: 4px 9px; cursor: pointer; }
+.btn:hover { border-color: var(--ink3); }
+.status { color: var(--ink2); font-size: 12px; }
+.weights { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; font-size: 12px; }
+.weights label { display: flex; gap: 5px; align-items: center; }
+.weights input[type=range] { width: 90px; }
+.weights .wv { min-width: 3.2em; font-weight: 600; }
+.nav { max-width: 1680px; margin: 0 auto; padding: 0 16px 8px; display: flex; gap: 6px; overflow-x: auto; }
+.nav a { white-space: nowrap; text-decoration: none; border: 1px solid var(--line); border-radius: 999px; padding: 2px 9px; font-size: 12px; color: var(--ink2); background: var(--panel2); }
+
+main { max-width: 1680px; margin: 0 auto; padding: 12px 16px 60px; }
+.method { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin-bottom: 14px; color: var(--ink2); font-size: 12px; }
+.method summary { cursor: pointer; color: var(--ink); font-weight: 600; }
+.method ul { margin: 6px 0; padding-left: 18px; }
+.quiet { padding: 60px 0; text-align: center; color: var(--ink2); font-size: 15px; }
+
+/* game */
+.game { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 22px; overflow: hidden; scroll-margin-top: 110px; }
+.ghead { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; padding: 12px 14px; border-bottom: 1px solid var(--line); background: var(--panel2); }
+.matchup { font-size: 19px; font-weight: 700; }
+.matchup .at { color: var(--ink3); font-weight: 400; margin: 0 6px; }
+.tip { color: var(--ink2); font-size: 13px; font-weight: 500; margin-left: 8px; }
+.score { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+.score .blk { font-size: 13px; }
+.score .lbl { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .5px; color: var(--ink3); }
+.score b { font-size: 15px; }
+.script { font-size: 12px; color: var(--ink2); width: 100%; }
+
+.teams { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid var(--line); }
+.tside { padding: 10px 14px; min-width: 0; }
+.tside + .tside { border-left: 1px solid var(--line); }
+.tname { font-weight: 700; font-size: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.tmeta { color: var(--ink2); font-size: 12px; margin: 3px 0 6px; }
+.tag { font-size: 10.5px; font-weight: 700; letter-spacing: .4px; padding: 1px 6px; border-radius: 4px; }
+.tag.p { color: var(--tag-p); background: var(--tag-p-bg); }
+.tag.i { color: var(--tag-i); background: var(--tag-i-bg); }
+.tag.none { color: var(--ink3); background: var(--panel2); font-weight: 600; }
+.tagd { font-size: 11.5px; color: var(--ink2); margin: 2px 0; }
+.outline { font-size: 12px; margin-top: 6px; }
+.outline b { color: var(--down); }
+.recon { font-size: 11.5px; color: var(--ink2); margin-top: 2px; }
+
+.tvp { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+.tvp caption { text-align: left; font-size: 11px; color: var(--ink2); padding-bottom: 3px; caption-side: top; }
+.tvp th, .tvp td { padding: 2px 5px; text-align: right; border-bottom: 1px solid var(--line); }
+.tvp th:first-child, .tvp td:first-child { text-align: left; }
+.tvp th { font-weight: 600; color: var(--ink2); font-size: 11px; }
+.soft { background: var(--warn-bg); }
+.tough { background: var(--proj-bg); }
+
+.badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: .3px; padding: 0 5px; border-radius: 3px; vertical-align: 1px; }
+.b-warn { color: var(--warn); background: var(--warn-bg); }
+.b-mod { color: var(--mod); background: var(--mod-bg); }
+.b-down { color: var(--down); background: var(--down-bg); }
+.b-up { color: var(--up); background: var(--up-bg); }
+.b-n { color: var(--ink2); background: var(--panel2); border: 1px solid var(--line); }
+.b-pat { color: var(--tag-p); background: var(--tag-p-bg); }
+.sig { font-size: 10.5px; color: var(--ink3); }
+.tagbox { margin-top: 6px; padding: 5px 7px; background: var(--panel2); border-radius: 6px; }
+.hitm { font-weight: 700; color: var(--ink); }
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; }
+.col { padding: 10px; min-width: 0; }
+.col + .col { border-left: 1px solid var(--line); }
+.colhead { font-weight: 700; padding: 0 4px 8px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.colhead span { font-weight: 400; color: var(--ink2); font-size: 12px; }
+
+/* card */
+.card { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 10px; background: var(--panel); overflow: hidden; }
+.chead { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; padding: 7px 10px; background: var(--panel2); border-bottom: 1px solid var(--line); }
+.pname { font-weight: 700; font-size: 14px; }
+.ppos { font-size: 11.5px; color: var(--ink2); }
+.pmin { margin-left: auto; font-size: 12px; color: var(--ink2); }
+.pmin b { color: var(--ink); }
+.proj { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); }
+.proj div { background: var(--proj-bg); color: var(--proj); text-align: center; padding: 5px 2px 4px; }
+.proj .k { font-size: 10px; font-weight: 600; letter-spacing: .5px; opacity: .8; }
+.proj .v { font-size: 18px; font-weight: 700; line-height: 1.15; }
+.proj .b { font-size: 10.5px; opacity: .85; }
+.cbody { padding: 6px 10px 8px; }
+.sec { margin-top: 8px; }
+.sech { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--ink2); display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; }
+.sech .sub { text-transform: none; font-weight: 400; letter-spacing: 0; color: var(--ink3); }
+table.t { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 2px; table-layout: auto; }
+table.t th, table.t td { padding: 1px 4px; text-align: right; white-space: nowrap; }
+table.t th { color: var(--ink3); font-weight: 600; font-size: 10.5px; border-bottom: 1px solid var(--line); }
+table.t td.l, table.t th.l { text-align: left; }
+table.t td.nm { max-width: 110px; overflow: hidden; text-overflow: ellipsis; }
+table.t tr.sum td { border-top: 1px solid var(--line); font-weight: 600; }
+table.t tr.sum2 td { color: var(--ink2); }
+table.t tr.flag td { color: var(--warn); }
+table.t tr.split td { color: var(--ink3); }
+table.blend tr.fin td { font-weight: 700; color: var(--proj); border-top: 1px solid var(--line); }
+.empty { font-size: 11.5px; color: var(--ink3); font-style: italic; padding: 2px 0; }
+.rates { font-size: 11px; color: var(--ink2); margin-top: 2px; }
+.flags { font-size: 11px; color: var(--warn); margin: 2px 0 0; padding-left: 14px; }
+.hits { font-size: 11px; color: var(--ink2); margin-top: 2px; }
+.notes { margin: 6px 0 0; padding: 0; list-style: none; font-size: 11.5px; }
+.notes li { padding: 3px 7px; border-radius: 4px; margin-top: 3px; }
+.n-con { background: var(--up-bg); }
+.n-div { background: var(--warn-bg); }
+.n-split, .n-env { background: var(--panel2); color: var(--ink2); }
+.n-env-up { background: var(--up-bg); }
+.n-env-down { background: var(--down-bg); }
+.n-cau { background: var(--down-bg); color: var(--down); font-weight: 600; }
+.n-scr-up { background: var(--up-bg); border-left: 3px solid var(--up); }
+.n-scr-down { background: var(--down-bg); border-left: 3px solid var(--down); }
+.segl { font-size: 11px; color: var(--ink2); margin-top: 4px; font-weight: 600; }
+.hide-unflagged .card:not(.has-flag) { display: none; }
+@media (max-width: 1100px) {
+  .cols, .teams, .gmid { grid-template-columns: 1fr; }
+  .col + .col, .tside + .tside { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 760px) {
+  .top { position: static; }
+}
+@media (max-width: 520px) {
+  .top-in, .nav, main { padding-left: 16px; padding-right: 16px; }
+  .col { padding: 8px 0; }
+  .proj .v { font-size: 16px; }
+  table.t { font-size: 10.5px; }
+  table.t th, table.t td { padding: 1px 2px; }
+  .cbody { overflow-x: auto; }
+}
+
+/* NFL additions */
+.proj.p4 { grid-template-columns: repeat(4, 1fr); }
+.proj .none { grid-column: 1 / -1; background: var(--panel2); color: var(--ink2); font-style: italic; }
+.rk { font-size: 10.5px; font-weight: 700; color: var(--ink2); }
+.rk.top { color: var(--up); }
+.rk.bot { color: var(--down); }
+.sub { font-weight: 400; color: var(--ink3); font-size: 11px; }
+.gmid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+.gmid > div { padding: 10px 14px; min-width: 0; }
+.gmid > div + div { border-left: 1px solid var(--line); }
+.wx.tilt { background: var(--warn-bg); }
+.wxh { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--ink2); }
+.wxn { display: flex; flex-wrap: wrap; gap: 2px 16px; margin: 4px 0 2px; font-size: 13px; }
+.wxr { font-size: 12.5px; margin-top: 3px; }
+.h2h td.up { background: var(--up-bg); color: var(--up); font-weight: 600; }
+.h2h td.down { background: var(--down-bg); color: var(--down); }
+.verdict { padding: 4px 10px; font-size: 12px; font-weight: 600; border-bottom: 1px solid var(--line); }
+.v-up { background: var(--up-bg); color: var(--up); }
+.v-down { background: var(--down-bg); color: var(--down); }
+.v-neu { background: var(--panel2); color: var(--ink2); }
+.defp { margin-top: 6px; padding: 5px 7px; background: var(--panel2); border-radius: 6px; }
+.scroll { overflow-x: auto; }
+.lt th.grp { text-align: center; }
+.lt td { white-space: nowrap; }
+code { font-size: 11.5px; background: var(--panel2); padding: 0 3px; border-radius: 3px; }
+@media (max-width: 1100px) { .gmid > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="top-in">
+    <div class="brand">NFL Matchup Board</div>
+    <div class="datectl">
+      <button class="btn" id="prev" title="Previous week">‹</button>
+      <span class="btn" id="wk">…</span>
+      <button class="btn" id="next" title="Next week">›</button>
+      <button class="btn" id="cur">This week</button>
+      <button class="btn" id="refresh" title="Re-pull schedule, lines, injuries, forecasts and any new box scores">Refresh</button>
+    </div>
+    <div class="weights" id="weights">
+      <span>Blend weights:</span>
+      <label>Vs team (last 3) <input type="range" id="w-vt" min="0" max="100" step="5"><span class="wv" id="wv-vt"></span></label>
+      <label>Own L5 <input type="range" id="w-l5" min="0" max="100" step="5"><span class="wv" id="wv-l5"></span></label>
+      <label>Opp pos log <input type="range" id="w-op" min="0" max="100" step="5"><span class="wv" id="wv-op"></span></label>
+      <button class="btn" id="wreset">50/25/25</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+  <nav class="nav" id="nav"></nav>
+</div>
+<main>
+  <details class="method" id="method">
+    <summary>How this board is built (sources, labels, what is modeled)</summary>
+    <ul>
+      <li><b>No picks.</b> The board shows matchups and single-value projections with every input line next to them. It does not recommend plays.</li>
+      <li><b>Sources:</b> ESPN public endpoints — weekly schedule, completed box scores (this season), player game logs (prior seasons, for vs-team meetings only), market line, rosters, and injury designations (ESPN's feed of the NFL's official game statuses). Weather: Open-Meteo hourly forecasts at the stadium. Schemes: FTN charting and nflverse play-by-play/participation data, built weekly into <code>data/schemes.json</code>. Nothing is typed in by hand; a number that can't be sourced is shown as "–" or n=0.</li>
+      <li><b>Data cutoff:</b> every line uses games completed before the week's first kickoff, so Thursday's game doesn't leak into Sunday's numbers.</li>
+      <li><b>Rankings 1–32</b> are per-game averages from box scores. Offense: #1 = most. Defense: #1 = fewest allowed. Points, total yards, rushing yards, net passing yards.</li>
+      <li><b>Key players</b> = per team, the QB, top 2 RBs, top 3 WRs and top TE by usage in the team's last 5 games (QB dropbacks; RB carries + targets; WR/TE targets). A second TE appears at ≥ 3 targets/game. A player back from injury keeps a slot through his season usage rate and is labelled RETURNING.</li>
+      <li><b>Projection</b> = weighted blend of three per-game lines. Default 50% last 3 vs this opponent / 25% own last 5 / 25% opponent positional log, adjustable above. A line with n=0 is dropped and the rest renormalized (shown on the card). Samples under full size carry their real n; nothing is padded.</li>
+      <li><b>Line 1 — own last 5:</b> his last 5 games this season with a recorded dropback, carry or target.</li>
+      <li><b>Line 2 — opponent positional log:</b> what the opponent allowed to all players at his position in each of its last 5 games. These are measured box-score sums, bucketed by ESPN's listed position (a WR who lines up in the slot is still a WR). To put the team total on his scale, it is multiplied by his share of his own team's output at that position <span class="badge b-mod">MODELED</span>.</li>
+      <li><b>Line 3 — last 3 vs this team:</b> 3, not 5, because NFL teams meet rarely. This season plus up to four prior seasons, playoffs included, any club.</li>
+      <li><b>Injuries:</b> OUT / IR players get no projection and go on the team's Out line. Questionable / doubtful players stay projected, flagged. When an out player held a measurable share of RB carries or team targets in the last 5 games, that volume is redistributed proportionally to the remaining players (×1/(1−share), capped ×1.5) and the card shows base vs adjusted <span class="badge b-mod">MODELED</span>. A fill-in starting QB's opponent line uses full starter volume. Receivers are <i>not</i> adjusted for a QB change (no measured basis) — the card says so.</li>
+      <li><b>Schemes</b> <span class="badge b-mod">MODELED</span>: rates (pass rate over expected, shotgun, play-action, motion, screens, personnel, blitz rate, pass rushers, box count, man/zone, coverage shells) are counted from charting data; identity labels and the front call (3- vs 4-down) are tendency reads, not published playbooks. Fields the source doesn't carry are shown as "not in source".</li>
+      <li><b>Weather</b> reads are rule-based: wind ≥ 15 mph (gusts ≥ 25) drags on deep passing and kicking, ≥ 20 (gusts ≥ 35) hurts both; rain ≥ 60% or snow favors the run, ball security and short passes; ≤ 32°F mild drag, ≤ 20°F (or feels ≤ 10°F) suppresses scoring. Domes, retractable roofs and SoFi's fixed roof say "Weather N/A (dome)".</li>
+      <li><b>Projected score</b> <span class="badge b-mod">MODELED</span>: each side = average of its points/g and the opponent's points allowed/g. The market line (ESPN's listed provider) and the score it implies are shown separately and only when posted.</li>
+      <li><b>Refresh:</b> the board builds the current week on every load, rolling to next week once all of the current week's games are final. Injuries and forecasts re-pull every 30 minutes while open. The scheme file rebuilds every Wednesday.</li>
+    </ul>
+  </details>
+  <div id="board"></div>
+</main>
+<script src="js/data.js"></script>
+<script src="js/venues.js"></script>
+<script src="js/model.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

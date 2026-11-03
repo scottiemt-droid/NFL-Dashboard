@@ -1,0 +1,42 @@
+name: Weekly scheme build
+
+# Rebuilds data/schemes.json from nflverse play-by-play, FTN charting and participation data.
+# Wednesday ahead of each week's games, plus Friday to pick up late charting uploads. Times are UTC.
+# The board itself pulls schedule, box scores, injuries and weather live on every load.
+on:
+  schedule:
+    - cron: '23 14 * * 3'
+    - cron: '23 14 * * 5'
+  workflow_dispatch:
+    inputs:
+      season:
+        description: 'NFL season year (blank = current)'
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-schemes
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build scheme file
+        run: node tools/build-schemes.js ${{ inputs.season && format('--season {0}', inputs.season) || '' }}
+      - name: Commit
+        run: |
+          git add data/schemes.json
+          if git diff --cached --quiet; then echo "No change."; exit 0; fi
+          git config user.name "schemes-build[bot]"
+          git config user.email "schemes-build@users.noreply.github.com"
+          git commit -m "Scheme file rebuild $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && exit 0; sleep 5; done
+          exit 1
