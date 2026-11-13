@@ -1,13 +1,13 @@
 {
  "season": 2026,
- "builtAt": "2026-11-11T21:28:27.790Z",
- "throughWeek": 9,
+ "builtAt": "2026-11-13T20:55:34.121Z",
+ "throughWeek": 10,
  "teamCount": 32,
  "sourceNote": "nflverse play-by-play + FTN charting",
  "sources": {
   "pbp": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/pbp/play_by_play_2026.csv.gz",
-   "plays": 16671
+   "plays": 16798
   },
   "ftn": {
    "url": "https://github.com/nflverse/nflverse-data/releases/download/ftn_charting/ftn_charting_2026.csv",
@@ -29,7 +29,7 @@
     "motion": 0.6,
     "screen": 0.06217616580310881,
     "personnel": null,
-    "proeRank": 10,
+    "proeRank": 11,
     "paRank": 29,
     "motionRank": 14,
     "screenRank": 25,
@@ -157,7 +157,7 @@
     "paRank": 5,
     "motionRank": 9,
     "screenRank": 22,
-    "shotgunRank": 15,
+    "shotgunRank": 16,
     "identity": "run-first, mixed gun/under-center, play-action heavy"
    },
    "def": {
@@ -370,7 +370,7 @@
     "motion": 0.6558441558441559,
     "screen": 0.09236947791164658,
     "personnel": null,
-    "proeRank": 25,
+    "proeRank": 26,
     "paRank": 13,
     "motionRank": 6,
     "screenRank": 15,
@@ -405,7 +405,7 @@
     "paRank": 16,
     "motionRank": 31,
     "screenRank": 28,
-    "shotgunRank": 13,
+    "shotgunRank": 14,
     "identity": "balanced, mixed gun/under-center"
    },
    "def": {
@@ -422,21 +422,21 @@
    }
   },
   "NYG": {
-   "n": 515,
+   "n": 578,
    "off": {
-    "passRate": 0.5844660194174758,
-    "proe": -0.05242374095957256,
-    "shotgun": 0.6233009708737864,
-    "noHuddle": 0.07378640776699029,
+    "passRate": 0.5899653979238755,
+    "proe": -0.0417163084779953,
+    "shotgun": 0.6470588235294118,
+    "noHuddle": 0.0726643598615917,
     "pa": 0.20930232558139536,
     "motion": 0.47766990291262135,
     "screen": 0.059800664451827246,
     "personnel": null,
-    "proeRank": 26,
+    "proeRank": 24,
     "paRank": 22,
     "motionRank": 30,
     "screenRank": 26,
-    "shotgunRank": 16,
+    "shotgunRank": 13,
     "identity": "run-first, mixed gun/under-center"
    },
    "def": {
@@ -804,7 +804,7 @@
     "motion": 0.5055679287305123,
     "screen": 0.07913669064748201,
     "personnel": null,
-    "proeRank": 24,
+    "proeRank": 25,
     "paRank": 18,
     "motionRank": 28,
     "screenRank": 21,
@@ -901,7 +901,7 @@
     "paRank": 20,
     "motionRank": 4,
     "screenRank": 13,
-    "shotgunRank": 14,
+    "shotgunRank": 15,
     "identity": "run-first, mixed gun/under-center, motion-heavy"
    },
    "def": {
@@ -949,17 +949,17 @@
    }
   },
   "WSH": {
-   "n": 489,
+   "n": 553,
    "off": {
-    "passRate": 0.6380368098159509,
-    "proe": -0.008030279693793657,
-    "shotgun": 0.7321063394683026,
-    "noHuddle": 0.08384458077709611,
+    "passRate": 0.6347197106690777,
+    "proe": -0.003912837916537161,
+    "shotgun": 0.7305605786618445,
+    "noHuddle": 0.09403254972875226,
     "pa": 0.20512820512820512,
     "motion": 0.5337423312883436,
     "screen": 0.038461538461538464,
     "personnel": null,
-    "proeRank": 11,
+    "proeRank": 10,
     "paRank": 24,
     "motionRank": 23,
     "screenRank": 31,
